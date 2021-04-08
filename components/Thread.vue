@@ -1,7 +1,13 @@
 <template>
-  <div class="p-2 md:block">
-    <h1 class="text-4xl mb-6" v-html="thread.title" />
-    <div v-for="post of thread.posts" :key="thread.slug">
+  <div class="p-2">
+    <div class="flex flex-col space-y-2 md:space-y-0 md:space-x-2 md:flex-row">
+      <h1 class="text-lg" v-html="thread.title" />
+      <p class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded bg-gray-200 text-grey-darkest">{{ thread.forum.title }}</p>
+      <p class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded bg-gray-200 text-grey-darkest">{{ thread.views }} visninger</p>
+      <p class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded bg-gray-200 text-grey-darkest">{{ thread.replycount }} svar</p>
+    </div>
+
+    <div v-for="post of thread.posts" :key="post.postid">
       <div class="flex flex-col justify-between space-y-6 border rounded-lg shadow mt-6 p-6">
         <div class="text-grey-dark leading-normal text-sm">
           <p>
@@ -12,7 +18,7 @@
 
         <div>
           <p
-            class="text-sm text-gray-darkest leading-normal whitespace-pre-line"
+            class="text-sm text-gray-darkest leading-normal whitespace-pre-wrap"
             v-html="post.parsed_page_text"
           ></p>
         </div>

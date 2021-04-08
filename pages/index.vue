@@ -2,11 +2,9 @@
   <div>
     <div class="flex items-center p-4">
       <div class="flex-none hidden md:block">
-        <NuxtLink to="/">
-          <img src="~/assets/dykkeprat_logo.png" alt="Dykkeprat"
-        /></NuxtLink>
+        <Logo/>
       </div>
-      <div class="flex-grow p-4 space-y-2">
+      <div class="flex-grow md:pl-4 space-y-2">
         <form>
           <input
             v-model="q"
@@ -25,7 +23,7 @@
             >stengt</NuxtLink
           >
           i oktober 2015. Her kan du søke i alle tråder og innlegg fra 2009 til
-          2015. Vi fortsetter diskusjonen på
+          2015. Vi fortsetter praten på
           <a
             class="text-dykkeprat-red hover:underline"
             target="_blank"
@@ -36,9 +34,13 @@
       </div>
     </div>
 
-    <ThreadList class="mt-8" :threads="paginatedThreads" :total="total" />
+    <ThreadList v-if="total" class="mt-8" :threads="paginatedThreads" :total="total" />
 
-    <div class="flex items-center justify-between py-3 mt-4">
+    <div v-else class="mt-6 flex justify-center p-4">
+        <p>Klarte ikke å finne noen innlegg som matcher '<span class="font-bold">{{ q }}</span>'.</p>
+    </div>
+
+    <div v-if="total > perPage" class="flex items-center justify-between py-3 mt-4">
       <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div class="ml-4">
           <p class="text-sm text-gray-700">
@@ -67,7 +69,7 @@
           :break-view-class="'break-view-class'"
           :break-view-link-class="'break-view-link-class'"
           :active-class="'font-bold'"
-          :disabled-class="'disabled-class'"
+          :disabled-class="'disabled:opacity-50'"
         >
         </paginate>
       </div>
@@ -77,11 +79,13 @@
 
 <script>
 import ThreadList from "@/components/ThreadList";
+import Logo from '@/components/Logo'
 
 export default {
   name: "Threads",
   components: {
     ThreadList,
+    Logo
   },
   computed: {
     firstItem() {

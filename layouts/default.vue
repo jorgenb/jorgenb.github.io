@@ -4,35 +4,38 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
+            <Logo class="mr-2 md:hidden" :classes="'h-10'" />
             <div class="flex-shrink-0 hidden md:block">
               <NuxtLink to="/"
                 ><img class="h-8" src="~/assets//dykkeprat.png" alt="Dykkeprat"
               /></NuxtLink>
             </div>
             <div class="flex items-baseline space-between">
-              <div class="md:ml-10 space-x-4">
+              <div
+                v-if="$nuxt.$route.name === 'threads-slug'"
+                class="md:ml-10 space-x-4"
+              >
                 <NuxtLink
                   class="bg-dykkeprat-red text-white px-3 py-2 rounded-md text-sm font-medium hover:underline"
                   to="/"
-                  >Alle innlegg</NuxtLink
+                  >Innleggene</NuxtLink
                 >
               </div>
-
             </div>
           </div>
-                        <div>
-                <a
-                  href="https://www.facebook.com/groups/dykkeprat"
-                  target="_blank"
-                  class="bg-dykkeprat-red text-white px-3 py-2 rounded-md text-sm font-medium hover:underline"
-                  >Dykkeprat på Facebook</a
-                >
-              </div>
+          <div class="hidden md:block">
+            <a
+              href="https://www.facebook.com/groups/dykkeprat"
+              target="_blank"
+              class="bg-dykkeprat-red text-white px-3 py-2 rounded-md text-sm font-medium hover:underline"
+              >Dykkeprat på Facebook</a
+            >
+          </div>
         </div>
       </div>
     </nav>
     <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8">
         <Nuxt />
       </div>
     </main>
@@ -66,3 +69,13 @@
     </footer>
   </div>
 </template>
+
+<script>
+import Logo from "@/components/Logo";
+export default {
+  components: {
+    Logo,
+  },
+};
+</script>
+

@@ -1,21 +1,20 @@
 export default {
+  googleAnalytics: {
+    id: 'G-THJGZKKDS8'
+  },
+  loading: {
+    color: '#B81F24',
+    height: '5px'
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  router: {
-    base: '/dykkeprat/'
-  },
-
-  generate: {
-    dir: '/dykkeprat/'
-  },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'dykkeprat',
+    title: 'Dykkeprat',
     htmlAttrs: {
       lang: 'en'
     },
@@ -25,7 +24,8 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'manifest', type: 'image/x-icon', href: '/site.webmanifest' }
     ]
   },
 
@@ -35,6 +35,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/vue-paginate.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,15 +45,26 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
   ],
   content: {
-    fullTextSearchFields: ['name'],
+    fullTextSearchFields: ['title'],
     liveEdit: false
+  },
+
+
+  generate: {
+    async routes () {
+      const { $content } = require('@nuxt/content')
+      const threads = await $content('threads', { deep: true }).fetch()
+
+      return threads.map(thread => thread.path === '/index' ? '/' : thread.path)
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

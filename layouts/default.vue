@@ -59,7 +59,7 @@
       <p>
         <a
           class="text-dykkeprat-red hover:underline"
-          href="https://github.com/jorgenb/dykkeprat.no"
+          href="https://github.com/jorgenb/jorgenb.github.io"
           >https://github.com/jorgenb/jorgenb.github.io</a
         >.
       </p>

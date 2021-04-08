@@ -1,4 +1,7 @@
-# dykkeprat
+![dykkeprat_logo](https://user-images.githubusercontent.com/8543501/114036497-69036c80-9880-11eb-94cf-a2504541cdeb.png)
+
+![dykkeprat](https://user-images.githubusercontent.com/8543501/114036511-6bfe5d00-9880-11eb-9d75-7d80a4736001.png)
+
 
 ## Build Setup
 

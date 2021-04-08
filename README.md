@@ -2,6 +2,9 @@
 
 ![dykkeprat](https://user-images.githubusercontent.com/8543501/114036511-6bfe5d00-9880-11eb-9d75-7d80a4736001.png)
 
+Forumet ble stengt i oktober 2015. Her kan du søke i alle tråder og innlegg fra 2009 til 2015. Vi fortsetter diskusjonen på Facebook.
+
+Se: https://www.facebook.com/groups/dykkeprat
 
 ## Build Setup
 

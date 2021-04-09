@@ -144,13 +144,13 @@ export default {
       el.style.height = 0;
     },
     enter: function (el, done) {
-      var delay = Number(el.dataset.indexNumber) * 20;
+      var delay = Number(el.dataset.indexNumber) * 50;
       setTimeout(function () {
         Velocity(el, { opacity: 1 }, { complete: done });
       }, delay);
     },
     leave: function (el, done) {
-      var delay = Number(el.dataset.indexNumber) * 20;
+      var delay = Number(el.dataset.indexNumber) * 1;
       setTimeout(function () {
         Velocity(el, { opacity: 0, height: 0 }, { complete: done });
       }, delay);

@@ -31,7 +31,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'manifest', type: 'image/x-icon', href: '/site.webmanifest' }
-    ]
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -34,7 +34,7 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main class="flex-grow">
       <div class="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8">
         <Nuxt />
       </div>

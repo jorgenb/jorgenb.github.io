@@ -13,6 +13,7 @@
             id="search"
             class="w-full border-2 focus:outline-none focus:ring-2 focus:ring-dykkeprat-red focus:border-transparent rounded-lg hover:shadow-lg"
             placeholder="Søk i alle innlegg"
+            @keydown.enter.prevent
           />
         </form>
         <p class="ml-1 text-gray-darkest text-sm">
@@ -41,9 +42,8 @@
         <p>Klarte ikke å finne noen innlegg som matcher '<span class="font-bold">{{ q }}</span>'.</p>
     </div>
 
-    <div v-if="total > perPage" class="flex items-center justify-between py-3 mt-4">
-      <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-        <div class="ml-4">
+      <div v-if="total > perPage" class="flex flex-col items-center md:flex-row md:justify-between mt-4 space-y-2 md:space-y-0">
+        <div class="ml-4 text-center">
           <p class="text-sm text-gray-700">
             Viser
             <span class="font-medium">{{ firstItem }}</span>
@@ -57,24 +57,21 @@
 
         <paginate
           :pageCount="numberOfPages"
+          :page-range="2"
           :clickHandler="setPage"
-          :prevText="'Forrige side'"
-          :nextText="'Neste side'"
+          :prevText="'⬅️'"
+          :nextText="'➡️'"
           :containerClass="'relative z-0 inline-flex rounded-md shadow-sm -space-x-px'"
           :page-class="'relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50'"
           :page-link-class="'page-link-class'"
           :prev-class="'relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50'"
           :prev-link-class="'prev-link-class'"
           :next-class="'relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50'"
-          :next-link-class="'next-link-class'"
-          :break-view-class="'break-view-class'"
-          :break-view-link-class="'break-view-link-class'"
           :active-class="'font-bold'"
           :disabled-class="'disabled:opacity-50'"
         >
         </paginate>
       </div>
-    </div>
   </div>
 </template>
 

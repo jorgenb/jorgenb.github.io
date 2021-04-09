@@ -36,7 +36,8 @@
 
     <ThreadList v-if="total" class="mt-8" :threads="paginatedThreads" :total="total" />
 
-    <div v-else class="mt-6 flex justify-center p-4">
+    <div v-else class="mt-4 flex p-4 flex-col text-center space-y-4">
+        <p class="text-5xl">💣</p>
         <p>Klarte ikke å finne noen innlegg som matcher '<span class="font-bold">{{ q }}</span>'.</p>
     </div>
 

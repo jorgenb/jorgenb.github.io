@@ -41,15 +41,15 @@
               </tr>
             </thead>
 
-              <transition-group
-                name="staggered-fade"
-                class="bg-white divide-y divide-gray-200"
-                tag="tbody"
-                v-bind:css="false"
-                v-on:before-enter="beforeEnter"
-                v-on:enter="enter"
-                v-on:leave="leave"
-              >
+            <transition-group
+              name="staggered-fade"
+              class="bg-white divide-y divide-gray-200"
+              tag="tbody"
+              :css="false"
+              @before-enter="beforeEnter"
+              @enter="enter"
+              @leave="leave"
+            >
               <tr
                 class="bg-white"
                 v-for="(thread, index) of threads"
@@ -75,7 +75,10 @@
                         class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-dykkeprat-grey text-white"
                         target="_blank"
                         href="https://www.facebook.com/groups/dykkeprat"
-                        >🍿 <span class="ml-2 hover:underline">Praten fortsetter på Facebook</span></a
+                        >🍿
+                        <span class="ml-2 hover:underline"
+                          >Praten fortsetter på Facebook</span
+                        ></a
                       >
                     </div>
                   </div>
@@ -112,8 +115,7 @@
                   </div>
                 </td>
               </tr>
-              </transition-group>
-            </tbody>
+            </transition-group>
           </table>
         </div>
       </div>
@@ -134,26 +136,27 @@ export default {
       default: 0,
     },
   },
+  data() {
+    return {
+      useStaggeredFade: false,
+    };
+  },
   methods: {
     formatDate(date) {
       const options = { year: "numeric", month: "long", day: "numeric" };
       return new Date(date).toLocaleDateString("no", options);
     },
     beforeEnter: function (el) {
-      el.style.opacity = 0;
-      el.style.height = 0;
+        el.style.opacity = 0;
+        //el.style.height = 0;
     },
     enter: function (el, done) {
-      var delay = Number(el.dataset.indexNumber) * 50;
-      setTimeout(function () {
-        Velocity(el, { opacity: 1 }, { complete: done });
-      }, delay);
+        var delay = Number(el.dataset.indexNumber) * 25;
+        Velocity(el, { opacity: 1 }, { easing: "easeInSine", delay: delay, complete: done });
     },
     leave: function (el, done) {
-      var delay = Number(el.dataset.indexNumber) * 1;
-      setTimeout(function () {
-        Velocity(el, { opacity: 0, height: 0 }, { complete: done });
-      }, delay);
+        var delay = Number(el.dataset.indexNumber) * 5;
+        Velocity(el, { opacity: 1 }, { easing: "easeInSine", delay: delay, complete: done });
     },
   },
 };

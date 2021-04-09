@@ -1,6 +1,6 @@
 export default {
   googleAnalytics: {
-    id: 'G-THJGZKKDS8'
+    id: 'UA-194229007-1'
   },
   loading: {
     color: '#B81F24',

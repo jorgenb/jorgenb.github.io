@@ -40,11 +40,21 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+
+              <transition-group
+                name="staggered-fade"
+                class="bg-white divide-y divide-gray-200"
+                tag="tbody"
+                v-bind:css="false"
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:leave="leave"
+              >
               <tr
-                :class="$nuxt.$loading.show ? 'bg-gray-50' : 'bg-white'"
-                v-for="thread of threads"
+                class="bg-white"
+                v-for="(thread, index) of threads"
                 :key="thread.threadid"
+                :data-index-number="index"
               >
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
@@ -102,6 +112,7 @@
                   </div>
                 </td>
               </tr>
+              </transition-group>
             </tbody>
           </table>
         </div>
@@ -111,7 +122,6 @@
 </template>
 
 <script>
-//import Pagination from "@/components/Pagination";
 export default {
   name: "ThreadList",
   props: {
@@ -128,6 +138,22 @@ export default {
     formatDate(date) {
       const options = { year: "numeric", month: "long", day: "numeric" };
       return new Date(date).toLocaleDateString("no", options);
+    },
+    beforeEnter: function (el) {
+      el.style.opacity = 0;
+      el.style.height = 0;
+    },
+    enter: function (el, done) {
+      var delay = Number(el.dataset.indexNumber) * 20;
+      setTimeout(function () {
+        Velocity(el, { opacity: 1 }, { complete: done });
+      }, delay);
+    },
+    leave: function (el, done) {
+      var delay = Number(el.dataset.indexNumber) * 20;
+      setTimeout(function () {
+        Velocity(el, { opacity: 0, height: 0 }, { complete: done });
+      }, delay);
     },
   },
 };

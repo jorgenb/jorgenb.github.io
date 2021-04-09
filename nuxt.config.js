@@ -23,6 +23,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Dykkeprat-arkivet' }
     ],
+    script: [
+      {
+        src: 'https://cdn.jsdelivr.net/npm/velocity-animate@1.2.3/velocity.min.js'
+      }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'manifest', type: 'image/x-icon', href: '/site.webmanifest' }

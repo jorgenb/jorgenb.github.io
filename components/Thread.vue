@@ -11,7 +11,7 @@
       <div class="flex flex-col justify-between space-y-6 border rounded-lg shadow mt-6 p-6">
         <div class="text-grey-dark leading-normal text-sm">
           <p>
-            <span class="text-dykkeprat-red font-bold">{{ post.user.username }}</span> <span class="mx-1 text-xs">&bull;</span>
+            <span v-if="post.user" class="text-dykkeprat-red font-bold">{{ post.user.username }}</span> <span class="mx-1 text-xs">&bull;</span>
             <span class="text-gray-700">{{ formatDate(post.createdAt) }}</span>
           </p>
         </div>
@@ -30,6 +30,18 @@
 <script>
 export default {
   name: "thread",
+  head () {
+    return {
+      title: this.thread.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.thread.posts[0]
+        }
+      ]
+    }
+  },
   props: {
     thread: {
       type: Object,

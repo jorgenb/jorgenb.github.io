@@ -16,7 +16,8 @@ export default {
   head: {
     title: 'Dykkeprat',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'nb',
+      amp: true
     },
     meta: [
       { charset: 'utf-8' },

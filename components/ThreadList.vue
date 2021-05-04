@@ -72,12 +72,12 @@
                     </div>
                     <div v-if="thread.threadid === 5485" class="ml-4">
                       <a
-                        class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-dykkeprat-grey text-white"
+                        class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-dykkeprat-red text-white"
                         target="_blank"
                         href="https://www.facebook.com/groups/dykkeprat"
                         >🍿
                         <span class="ml-2 hover:underline"
-                          >Praten fortsetter på Facebook</span
+                          >Praten fortsetter på Facebook ...</span
                         ></a
                       >
                     </div>

@@ -27,8 +27,12 @@
             <a
               href="https://www.facebook.com/groups/dykkeprat"
               target="_blank"
-              class="bg-dykkeprat-red text-white px-3 py-2 rounded-md text-sm font-medium hover:underline"
-              >Dykkeprat på Facebook</a
+              class="bg-dykkeprat-red inline-flex text-xs leading-5 text-white px-3 py-2 rounded-md text-sm font-medium"
+              >🍿
+              <span class="ml-2 hover:underline">
+                Dykkeprat på Facebook
+              </span>
+              </a
             >
           </div>
         </div>

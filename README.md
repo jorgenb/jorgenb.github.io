@@ -4,7 +4,7 @@
 
 Forumet ble stengt i oktober 2015. Her kan du søke i alle tråder og innlegg fra 2009 til 2015. Vi fortsetter praten på Facebook.
 
-Se: https://www.facebook.com/groups/dykkeprat
+Se: https://jorgenb.github.io
 
 ## Build Setup
 
